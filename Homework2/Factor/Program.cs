@@ -13,6 +13,11 @@ namespace Factor
                 return;
             }
 
+            if (number < 2)
+            {
+                Console.WriteLine("The number has no prime factor");
+                return;
+            }
             Console.Write("The prime factors of the number are:");
             for (var i = 2; i <= number / 2; i++)
             {
