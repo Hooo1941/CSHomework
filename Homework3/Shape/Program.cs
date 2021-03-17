@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Shape
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             double totalArea = 0;
             for (var i = 1; i <= 10; i++)

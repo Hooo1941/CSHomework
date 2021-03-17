@@ -4,14 +4,14 @@ namespace Shape
 {
     public class ShapeFactory
     {
-        public static IShape GetShape(string shapeType, double[] arg)
+        public static IShape GetShape(string shapeType, double[] args)
         {
             return shapeType switch
             {
                 null => null,
-                "Rectangle" when arg.Length > 1 => new Rectangle(arg[0], arg[1]),
-                "Square" when arg.Length > 0 => new Square(arg[0]),
-                "Triangle" when arg.Length > 2 => new Triangle(arg[0], arg[1], arg[2]),
+                "Rectangle" when args.Length > 1 => new Rectangle(args[0], args[1]),
+                "Square" when args.Length > 0 => new Square(args[0]),
+                "Triangle" when args.Length > 2 => new Triangle(args[0], args[1], args[2]),
                 _ => null
             };
         }
