@@ -8,6 +8,7 @@ namespace OrderView
     public partial class OrderView : Form
     {
         public static readonly OrderService orderService = new();
+        
         private IEnumerable<Order> searchOrders;
         public OrderView()
         {
@@ -36,7 +37,7 @@ namespace OrderView
         private void btnDeleteOrder_Click(object sender, EventArgs e)
         {
             var currentRow = bdsOrder.Current;
-            orderService.DeleteOrder(((Order) currentRow).Id);
+            orderService.DeleteOrder(((Order)currentRow).OrderId);
             bdsOrder.ResetBindings(false);
         }
 
@@ -59,7 +60,7 @@ namespace OrderView
                     return;
                 }
 
-                searchOrders = orderService.Query(o => o.Id == id);
+                searchOrders = orderService.Query(o => o.OrderId == id);
 
             }
             else //用户名
@@ -77,15 +78,10 @@ namespace OrderView
         private void btnChange_Click(object sender, EventArgs e)
         {
             var currentRow = bdsOrder.Current;
-            var ao = new AddOrder(((Order)currentRow).Id);
+            var ao = new AddOrder(((Order)currentRow).OrderId);
             ao.ShowDialog(this);
             bdsOrder.ResetBindings(false);
 
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            bdsOrder.ResetBindings(false);
         }
     }
 }

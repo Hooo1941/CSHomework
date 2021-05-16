@@ -35,21 +35,17 @@ namespace OrderView
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
             this.btnAddGood = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCustomer = new System.Windows.Forms.TextBox();
-            this.nudId = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.goodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsGoods = new System.Windows.Forms.BindingSource(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudId)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGoods)).BeginInit();
@@ -74,11 +70,9 @@ namespace OrderView
             this.tableLayoutPanel1.Controls.Add(this.btnDelete, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnChange, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAddGood, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtCustomer, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.nudId, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
@@ -120,16 +114,6 @@ namespace OrderView
             this.btnAddGood.UseVisualStyleBackColor = true;
             this.btnAddGood.Click += new System.EventHandler(this.btnAddGood_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "订单号";
-            // 
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -157,28 +141,6 @@ namespace OrderView
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.Size = new System.Drawing.Size(181, 21);
             this.txtCustomer.TabIndex = 2;
-            // 
-            // nudId
-            // 
-            this.nudId.Location = new System.Drawing.Point(63, 13);
-            this.nudId.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.nudId.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudId.Name = "nudId";
-            this.nudId.Size = new System.Drawing.Size(120, 21);
-            this.nudId.TabIndex = 1;
-            this.nudId.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // panel1
             // 
@@ -234,12 +196,6 @@ namespace OrderView
             // 
             this.bdsGoods.DataSource = typeof(OrderManager.OrderDetails);
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // AddOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -253,7 +209,6 @@ namespace OrderView
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudId)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGoods)).EndInit();
@@ -269,15 +224,12 @@ namespace OrderView
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.Button btnAddGood;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCustomer;
-        private System.Windows.Forms.NumericUpDown nudId;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn goodDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Timer timer1;
     }
 }
