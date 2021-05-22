@@ -24,7 +24,17 @@ namespace OrderWebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
-            return await _context.Orders.ToListAsync();
+            var orders = await _context.Orders.ToListAsync();
+            foreach (var order in orders)
+            {
+                foreach (var good in _context.Goods)
+                {
+                    if (good.OrderId == order.OrderId) order.Goods.Add(good);
+                }
+
+                order.Goods = order.Goods.GroupBy(x => x.GoodId).Select(y => y.First()).ToList();
+            }
+            return orders;
         }
 
         // GET: api/Orders/5
@@ -32,12 +42,15 @@ namespace OrderWebApi.Controllers
         public async Task<ActionResult<Order>> GetOrder(long id)
         {
             var order = await _context.Orders.FindAsync(id);
-
+            foreach (var good in _context.Goods)
+            {
+                if (good.OrderId == id) order.Goods.Add(good);
+            }
             if (order == null)
             {
                 return NotFound();
             }
-
+            order.Goods = order.Goods.GroupBy(x => x.GoodId).Select(y => y.First()).ToList();
             return order;
         }
 
